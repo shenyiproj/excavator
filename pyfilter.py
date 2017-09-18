@@ -27,7 +27,7 @@ class PyFilter:
     def getAPIdoc(self, pypath):
         pycontent = open(pypath.decode('utf-8')).read()
         func_apidoc = re.findall(r'.*[def|class]\s.+\n.+"""([\s\S]*?)"""', pycontent)
-        func_name = re.findall(r'[def|class]\s?[\s\S].*\)', pycontent)
+        func_name = re.findall(r'[def|class]+\s.[\s\S].*:', pycontent)
         cn_content = []
         if func_apidoc:
             try:
